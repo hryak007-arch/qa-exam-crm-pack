@@ -1,4 +1,4 @@
-# QA Premium Pack (Exam 2nd/3rd report add-ons)
+#  (Exam 2nd/3rd report add-ons)
 
 Цей пакет містить допоміжні файли, на які посилається звіт:
 - `tests/` — інтеграційні тести pytest + FastAPI TestClient
