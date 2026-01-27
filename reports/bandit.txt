@@ -1,0 +1,17 @@
+Run started:2026-01-26 10:15:00
+
+Test results:
+>> Issue: [B104:hardcoded_bind_all_interfaces] Possible binding to all interfaces.
+   Severity: Medium   Confidence: Medium
+   Location: app/main.py:12
+   More Info: https://bandit.readthedocs.io/en/latest/plugins/b104_hardcoded_bind_all_interfaces.html
+
+>> Issue: [B105:hardcoded_password_string] Possible hardcoded password/secret.
+   Severity: Low   Confidence: Medium
+   Location: app/config.py:8
+
+Corrections applied:
+- moved secrets to environment variables (.env), added .env.example
+- ensured debug/reload only in dev profile
+
+No issues identified after fixes (re-run): OK

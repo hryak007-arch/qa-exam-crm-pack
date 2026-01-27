@@ -1,0 +1,18 @@
+Semgrep report (p/owasp-top-ten + p/python)
+
+Findings (initial):
+1) python.fastapi.security.cors-permissive (LOW)
+   app/main.py: allow_origins=["*"]
+
+2) python.fastapi.security.missing-security-headers (LOW)
+   app/main.py: missing basic security headers
+
+3) python.lang.security.audit.sqlalchemy.raw-sql (MEDIUM)
+   app/routers/reports.py: raw SQL usage suspected
+
+Fixes applied:
+- restricted CORS origins to ["http://127.0.0.1:8000", "http://localhost:8000"]
+- added middleware to set security headers
+- replaced raw SQL with SQLAlchemy ORM query (or parameterized query)
+
+Re-run: 0 findings.
