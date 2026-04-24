@@ -1,0 +1,21 @@
+1) Скопировать файлы из архива в корень репозитория qa-exam-crm-pack.
+2) Добавить в requirements-dev.txt строки:
+ruff
+mypy
+pre-commit
+
+3) Добавить в .gitignore строки:
+.mypy_cache/
+.ruff_cache/
+.pre-commit-cache/
+
+4) Выполнить по одной:
+py -m pip install -r requirements-dev.txt
+mkdir reports
+py -m ruff check . > reports/ruff-before.txt 2>&1
+py -m ruff check . --fix
+py -m ruff format .
+py -m mypy . > reports/mypy-after.txt 2>&1
+py -m pre_commit install
+py -m pre_commit run --all-files
+py scripts/check_quality.py > reports/quality-check.txt 2>&1
